@@ -1,0 +1,37 @@
+/* Paleta do Litoral Brasileiro */
+.bg-mar-profundo { background-color: #023e8a !important; }
+.text-areia { color: #f4a261 !important; }
+.bg-areia { background-color: #f4a261 !important; color: #fff; }
+.bg-areia:hover { background-color: #e76f51 !important; color: #fff; }
+
+/* Hero Section (Banner Principal) */
+.hero-beach {
+    background: linear-gradient(rgba(2, 62, 138, 0.7), rgba(0, 119, 182, 0.8)), 
+                url('https://images.unsplash.com/photo-1519046904884-53103b34b206?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80') center/cover no-repeat;
+    color: white;
+    padding: 6rem 0;
+    border-bottom: 8px solid #f4a261; /* Faixa de areia */
+}
+
+/* Cards Interativos */
+.card-atalho {
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    border: none;
+    border-radius: 15px;
+    overflow: hidden;
+}
+.card-atalho:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 15px 30px rgba(0,0,0,0.15);
+}
+.icone-card {
+    font-size: 3rem;
+    color: #0077b6;
+    margin-bottom: 15px;
+}
+
+/* Secção de Vantagens (Plataforma Própria) */
+.vantagens-section {
+    background-color: #f8f9fa;
+    padding: 4rem 0;
+}
