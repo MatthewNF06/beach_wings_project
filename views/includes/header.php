@@ -3,14 +3,22 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Beach Wings</title>
+    <title>Beach Wings Network</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="assets/css/style.css">
 </head>
-<!-- Removemos a classe bg-light daqui para o CSS do Dark Mode funcionar -->
 <body>
 
-<!-- Navbar com o fundo Azul Profundo e uma linha subtil a dividir -->
+<?php
+// Calcula o total de itens no carrinho (somando as quantidades de cada prato)
+$total_carrinho = 0;
+if (isset($_SESSION['carrinho']) && is_array($_SESSION['carrinho'])) {
+    foreach ($_SESSION['carrinho'] as $item) {
+        $total_carrinho += $item['quantidade'];
+    }
+}
+?>
+
 <nav class="navbar navbar-expand-lg navbar-dark shadow-sm" style="background-color: #0B1D3A; border-bottom: 1px solid rgba(255,255,255,0.05);">
     <div class="container">
         <a class="navbar-brand fw-bold text-areia" href="index.php?route=home">🌴 Beach Wings</a>
@@ -21,12 +29,17 @@
             <ul class="navbar-nav ms-auto fw-bold">
                 <li class="nav-item"><a class="nav-link text-white" href="index.php?route=cardapio">Cardápio</a></li>
                 <li class="nav-item"><a class="nav-link text-white" href="index.php?route=reservas">Reservas</a></li>
-                <li class="nav-item"><a class="nav-link text-white" href="index.php?route=carrinho">Carrinho (<?= array_sum($_SESSION['carrinho'] ?? []) ?>)</a></li>
+                
+                <li class="nav-item">
+                    <a class="nav-link text-laranja" href="index.php?route=carrinho">
+                        🛒 Carrinho (<?= $total_carrinho ?>)
+                    </a>
+                </li>
+                
                 <li class="nav-item"><a class="nav-link text-white" href="index.php?route=perfil">Perfil</a></li>
             </ul>
         </div>
     </div>
 </nav>
 
-<!-- Início do Container Principal que envolve as páginas -->
 <div class="container-fluid p-0">

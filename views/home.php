@@ -1,73 +1,92 @@
-<header class="hero-beach text-center shadow-lg">
+<header class="hero-beach text-center shadow">
     <div class="container">
-        <h1 class="display-3 fw-bold mb-3">🌴 Beach Wings</h1>
-        <p class="lead fs-4 mb-4">A verdadeira essência do litoral brasileiro, agora num clique de distância.</p>
-        <div class="d-flex justify-content-center gap-3">
-            <a href="index.php?route=cardapio" class="btn btn-outline-light bg-areia btn-lg fw-bold px-5 py-3 rounded-pill">Pedir Agora</a>
-            <a href="index.php?route=reservas" class="btn btn-outline-light btn-lg fw-bold px-5 py-3 rounded-pill">Garantir Mesa</a>
+        <h1 class="display-4 fw-bold mb-3 text-white">A orla nas suas mãos.</h1>
+        <p class="lead fs-4 mb-4 text-white">Peça dos melhores quiosques de Vila Velha e receba direto na sua cadeira de praia.</p>
+        
+        <div class="d-flex justify-content-center align-items-center gap-3 flex-wrap mt-4">
+            <a href="index.php?route=cardapio" class="cta-button">EXPLORAR QUIOSQUES</a>
+            <a href="index.php?route=reservas" class="btn-outline-custom">RESERVAR UMA MESA</a>
         </div>
     </div>
 </header>
 
-<section class="vantagens-section text-center">
-    <div class="container">
-        <h2 class="fw-bold mb-5" style="color: #023e8a;">Porquê escolher o nosso site oficial?</h2>
-        <div class="row g-4">
+<section class="py-5 text-center" style="background-color: rgba(0,0,0,0.2);">
+    <div class="container py-4">
+        <h2 class="fw-bold mb-5 text-laranja">Como funciona o Beach Wings Network?</h2>
+        <div class="row g-4 text-light">
             <div class="col-md-4">
-                <h3 class="icone-card">🚀</h3>
-                <h5 class="fw-bold">Pedidos Mais Rápidos</h5>
-                <p class="text-muted">Sem intermediários. O seu pedido vai direto da sua tela para a nossa cozinha.</p>
+                <h1 class="display-4 mb-3 text-areia">📱</h1>
+                <h5 class="fw-bold">1. Escolha o Local</h5>
+                <p class="text-muted">Navegue pelos quiosques parceiros espalhados pela costa.</p>
             </div>
             <div class="col-md-4">
-                <h3 class="icone-card">🏷️</h3>
-                <h5 class="fw-bold">Preços Exclusivos</h5>
-                <p class="text-muted">Desfrute dos melhores preços e promoções que só encontra na nossa plataforma própria.</p>
+                <h1 class="display-4 mb-3 text-areia">🍤</h1>
+                <h5 class="fw-bold">2. Monte o Pedido</h5>
+                <p class="text-muted">Misture petiscos de um e drinks de outro no mesmo carrinho.</p>
             </div>
             <div class="col-md-4">
-                <h3 class="icone-card">⭐</h3>
-                <h5 class="fw-bold">Experiência VIP</h5>
-                <p class="text-muted">Crie o seu perfil, guarde os seus pratos favoritos e faça reservas em segundos.</p>
+                <h1 class="display-4 mb-3 text-areia">🏖️</h1>
+                <h5 class="fw-bold">3. Relaxe na Areia</h5>
+                <p class="text-muted">Avisamos os parceiros e a entrega é feita direto no seu guarda-sol.</p>
             </div>
         </div>
     </div>
 </section>
 
-<div class="container my-5">
-    <h3 class="fw-bold text-center mb-4 border-bottom pb-2">Explore o Beach Wings</h3>
-    <div class="row text-center g-4">
-        
-        <div class="col-md-4">
-            <div class="card card-atalho h-100 bg-white">
-                <div class="card-body p-4">
-                    <div class="icone-card">🍤</div>
-                    <h4 class="card-title fw-bold">O Nosso Cardápio</h4>
-                    <p class="card-text text-muted mb-4">Frutos do mar frescos, petiscos crocantes e drinks que são a cara do verão.</p>
-                    <a href="index.php?route=cardapio" class="btn btn-outline-primary w-100 rounded-pill">Ver Opções</a>
+<<section class="py-5 text-center">
+    <div class="container py-4">
+        <h2 class="fw-bold mb-5 text-areia">A Nossa Rede de Quiosques</h2>
+        <div class="row g-4 justify-content-center">
+            
+            <?php 
+            if(isset($quiosques_destaque) && $quiosques_destaque->rowCount() > 0): 
+                // Usamos as cores do nosso tema para garantir contraste total
+                // 1: Azul Mar, 2: Laranja, 3: Amarelo Areia
+                $estilos_badge = [
+                    ['bg' => '#2D9CDB', 'txt' => '#FFFFFF'], // Azul Mar
+                    ['bg' => '#F2994A', 'txt' => '#FFFFFF'], // Laranja
+                    ['bg' => '#F2C94C', 'txt' => '#1A1A1A'], // Areia (texto escuro para ler no amarelo)
+                    ['bg' => '#023e8a', 'txt' => '#FFFFFF']  // Mar Profundo
+                ];
+                $i = 0;
+                
+                while ($q = $quiosques_destaque->fetch(PDO::FETCH_ASSOC)): 
+                    $estilo = $estilos_badge[$i % count($estilos_badge)]; 
+            ?>
+            
+            <div class="col-md-4">
+                <div class="card card-dark h-100 shadow-lg overflow-hidden p-3 border-0 rounded-4" style="background-color: #162a4a !important;">
+                    <div class="card-body d-flex flex-column text-center">
+                        <div class="mb-3">
+                            <span class="badge px-3 py-2 fw-bold shadow-sm" 
+                                  style="background-color: <?= $estilo['bg'] ?>; color: <?= $estilo['txt'] ?>; font-size: 0.9rem;">
+                                📍 <?= htmlspecialchars($q['localizacao']) ?>
+                            </span>
+                        </div>
+                        <h4 class="fw-bold text-white mb-2"><?= htmlspecialchars($q['nome']) ?></h4>
+                        <p class="small mb-4 flex-grow-1" style="color: rgba(255,255,255,0.7);">
+                            <?= htmlspecialchars($q['descricao']) ?>
+                        </p>
+                        <a href="index.php?route=cardapio" class="cta-button w-100 mt-auto rounded-pill border-0 shadow" style="padding: 10px;">
+                            Ver Cardápio
+                        </a>
+                    </div>
                 </div>
             </div>
-        </div>
-
-        <div class="col-md-4">
-            <div class="card card-atalho h-100 bg-white">
-                <div class="card-body p-4">
-                    <div class="icone-card">🏖️</div>
-                    <h4 class="card-title fw-bold">Mesa com Vista</h4>
-                    <p class="card-text text-muted mb-4">Evite filas de espera. Escolha a data e venha desfrutar do pôr do sol connosco.</p>
-                    <a href="index.php?route=reservas" class="btn btn-outline-primary w-100 rounded-pill">Fazer Reserva</a>
+            
+            <?php 
+                    $i++;
+                endwhile; 
+            else: 
+            ?>
+                <div class="col-12">
+                    <p class="text-white fs-5 opacity-50">Nenhum quiosque aberto no momento...</p>
                 </div>
-            </div>
-        </div>
+            <?php endif; ?>
 
-        <div class="col-md-4">
-            <div class="card card-atalho h-100 bg-white">
-                <div class="card-body p-4">
-                    <div class="icone-card">👤</div>
-                    <h4 class="card-title fw-bold">O Seu Espaço</h4>
-                    <p class="card-text text-muted mb-4">Registe a sua morada para entregas ágeis e acompanhe o seu histórico de pedidos.</p>
-                    <a href="index.php?route=perfil" class="btn btn-outline-primary w-100 rounded-pill">Crie ou Acesse seu Perfil</a>
-                </div>
-            </div>
         </div>
-
     </div>
-</div>
+</section>
+        <div class="row g-4 text-center justify-content-center">
+            <div class="col-md-4">
+                <div class="card card-dark h-100 shadow-sm overflow-hidden p-3 border-0 rounded-4" style

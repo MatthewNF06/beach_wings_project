@@ -64,7 +64,52 @@
                             <input type="text" name="estado" class="form-control bg-dark text-light border-secondary" required placeholder="ES">
                         </div>
                     </div>
-                    
+                    <div class="row justify-content-center mt-5">
+                        <div class="col-lg-8">
+                            <h4 class="mb-4 fw-bold text-areia border-bottom border-secondary pb-3">Histórico de Compras na Rede</h4>
+                            
+                            <div class="card card-dark shadow-sm rounded-4 border-0 overflow-hidden">
+                                <div class="table-responsive">
+                                    <table class="table table-dark table-hover bg-transparent mb-0">
+                                        <thead style="background-color: rgba(255,255,255,0.05);">
+                                            <tr>
+                                                <th class="text-areia px-4"># Pedido</th>
+                                                <th class="text-areia">Data</th>
+                                                <th class="text-areia">Total</th>
+                                                <th class="text-areia">Status</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <?php 
+                                            // O ideal é que $historico_pedidos venha do seu Controller
+                                            if(isset($historico_pedidos) && $historico_pedidos->rowCount() > 0): 
+                                                while ($row = $historico_pedidos->fetch(PDO::FETCH_ASSOC)): 
+                                            ?>
+                                            <tr>
+                                                <td class="text-light fw-bold px-4">BW-<?= str_pad($row['id'], 4, '0', STR_PAD_LEFT) ?></td>
+                                                <td class="text-light"><?= date('d/m/Y H:i', strtotime($row['criado_em'])) ?></td>
+                                                <td class="text-light fw-bold text-laranja">R$ <?= number_format($row['valor_total'], 2, ',', '.') ?></td>
+                                                <td>
+                                                    <?php 
+                                                        $cor_badge = $row['status_pedido'] == 'Entregue' ? 'bg-success' : 'bg-warning text-dark';
+                                                    ?>
+                                                    <span class="badge <?= $cor_badge ?> rounded-pill"><?= htmlspecialchars($row['status_pedido']) ?></span>
+                                                </td>
+                                            </tr>
+                                            <?php 
+                                                endwhile; 
+                                            else: 
+                                            ?>
+                                            <tr>
+                                                <td colspan="4" class="text-center text-muted py-4">Você ainda não fez nenhum pedido na orla.</td>
+                                            </tr>
+                                            <?php endif; ?>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                     <button type="submit" class="cta-button w-100 mt-3 border-0 py-3 fs-5">Criar Conta e Guardar Endereço</button>
                 </form>
             </div>

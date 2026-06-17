@@ -65,3 +65,16 @@
 .card-experiencia:hover {
     box-shadow: 0 10px 20px rgba(0,0,0,0.1);
 }
+/* Garante que o fundo da página nunca seja branco */
+body {
+    background-color: #0B1D3A !important;
+    color: #FFFFFF !important;
+    margin: 0;
+    padding: 0;
+    min-height: 100vh;
+}
+
+/* Força os links da navbar a serem brancos */
+.nav-link {
+    color: #FFFFFF !important;
+}
