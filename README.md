@@ -1,5 +1,6 @@
 # Beach Wings Network
 *Projeto inicialmente desenvolvido de forma acadêmica para a disciplina de Desenvolvimento Web, e posteriormente ampliado para um modelo real de negócios.*
+
 **O 1º Marketplace Exclusivo da Orla**
 
 Bem-vindo ao repositório do **Beach Wings Network**, uma plataforma web (SaaS) desenvolvida para digitalizar e otimizar as vendas diretas de quiosques litorâneos. Este projeto nasceu para resolver uma dor real do mercado gastronômico de praia: a altíssima dependência de aplicativos de entrega terceirizados (que cobram até 27% de taxa) e a dificuldade de logística de atendimento diretamente na areia.
