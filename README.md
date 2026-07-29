@@ -20,19 +20,6 @@ Uma plataforma web responsiva e centralizada onde o cliente pode visualizar todo
 
 ---
 
-## Modelo de Negócios e Viabilidade Comercial
-
-Desenvolver uma plataforma de marketplace com esta arquitetura sob medida (MVC, Banco Relacional, Carrinho e Checkouts seguros) tem um custo estimado no mercado atual (2026) entre **R$ 15.000,00 e R$ 25.000,00** (aprox. 150 a 250 horas de desenvolvimento pleno).
-
-Para contornar este alto custo para os lojistas, o sistema foi arquitetado para operar no modelo **SaaS (Software as a Service) / White-label**:
-*   **Taxa de Adesão:** R$ 800,00 (Setup, cadastro do cardápio e treinamento da equipe do quiosque).
-*   **Mensalidade Fixa:** R$ 149,90 (Acesso, hospedagem e suporte).
-*   **Comissão Justa:** Apenas **2% por pedido online**.
-
-> *Com apenas 10 quiosques parceiros na orla, o projeto já se torna altamente lucrativo, garantindo economia massiva para o lojista (que antes perdia milhares de reais em taxas) e receita recorrente para a plataforma.*
-
----
-
 ## Arquitetura do Software (Padrão MVC)
 
 O projeto foi rigorosamente construído utilizando o padrão de arquitetura de software **MVC (Model-View-Controller)**, garantindo separação de responsabilidades, alta manutenibilidade e adequação a normas de qualidade (como a ISO 25010).
