@@ -1,5 +1,5 @@
 # Beach Wings Network
-*Projeto inicialmente desenvolvido de forma acadêmica para a disciplina de Desenvolvimento Web no IFES - Serra em 2026/1, e posteriormente ampliado para um modelo real de negócios.*
+*Projeto inicialmente desenvolvido de forma acadêmica para a disciplina de Desenvolvimento Web no IFES - Serra em 2026/1, e posteriormente ampliado para um modelo mais completo.*
 
 **O 1º Marketplace Exclusivo da Orla**
 
